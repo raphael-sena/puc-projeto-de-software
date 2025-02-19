@@ -1,17 +1,17 @@
 public abstract class Componente {
     protected String nome;
-    protected double valorTotal = 0;
+    protected double valor;
 
     public Componente() {
     }
 
-    public Componente(String nome, double valorTotal) {
+    public Componente(String nome) {
         this.nome = nome;
-        this.valorTotal += valorTotal;
     }
 
     public abstract void escreva();
     public abstract void add(Componente peca);
     public abstract void remove(Componente peca);
     public abstract Componente obterPecas(int pos);
+    public abstract double calcularValorTotal();
 }

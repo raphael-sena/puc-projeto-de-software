@@ -1,19 +1,17 @@
 public class PecaFolha extends Componente {
 
-    protected Double valor;
-
     public PecaFolha() {
     }
 
 
     public PecaFolha(String nome, Double valor) {
-        super(nome, valor);
+        super(nome);
         this.valor = valor;
     }
 
     @Override
     public void escreva() {
-
+        System.out.println("  --" + "Nome: " + nome + "; Valor: " + valor);
     }
 
     @Override
@@ -27,5 +25,10 @@ public class PecaFolha extends Componente {
     @Override
     public Componente obterPecas(int pos) {
         return null;
+    }
+
+    @Override
+    public double calcularValorTotal() {
+        return valor;
     }
 }

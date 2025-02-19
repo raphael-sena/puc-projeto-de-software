@@ -2,22 +2,18 @@ import java.util.ArrayList;
 
 public class PecaComposta extends Componente {
 
-    protected double valorTotal = 0;
-
-    private ArrayList<Componente> componentes;
+    private ArrayList<Componente> componentes = new ArrayList<>();
 
     public PecaComposta() {
     }
 
-    public PecaComposta(String nome, double valorTotal) {
-        super(nome, valorTotal);
-        this.valorTotal += valorTotal;
-        componentes = new ArrayList<>();
+    public PecaComposta(String nome) {
+        super(nome);
     }
 
     @Override
     public void escreva() {
-        System.out.println("+" + "Nome: " + nome + " Valor: " + valorTotal);
+        System.out.println("+" + "Nome: " + nome + " Valor: " + valor);
         for(Componente componente : componentes) {
             componente.escreva();
         }
@@ -36,5 +32,14 @@ public class PecaComposta extends Componente {
     @Override
     public Componente obterPecas(int pos) {
         return componentes.get(pos);
+    }
+
+    @Override
+    public double calcularValorTotal() {
+        valor = 0;
+        for (Componente componente : componentes) {
+            valor += componente.calcularValorTotal();
+        }
+        return valor;
     }
 }
