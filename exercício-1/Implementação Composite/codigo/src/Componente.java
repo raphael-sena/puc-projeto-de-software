@@ -1,13 +1,13 @@
 public abstract class Componente {
     protected String nome;
-    protected double valorTotal;
+    protected double valorTotal = 0;
 
     public Componente() {
     }
 
     public Componente(String nome, double valorTotal) {
         this.nome = nome;
-        this.valorTotal = valorTotal;
+        this.valorTotal += valorTotal;
     }
 
     public abstract void escreva();
