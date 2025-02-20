@@ -16,11 +16,12 @@ public abstract class Veiculo {
 
     @Override
     public String toString() {
-        return "Veiculo{" +
-                "tipo='" + tipo + '\'' +
-                ", marca='" + marca + '\'' +
-                ", ano=" + ano +
-                ", motor='" + motor + '\'' +
-                '}';
+        return "{" +
+            " tipo='" + tipo + "'" +
+            ", marca='" + marca + "'" +
+            ", ano='" + ano + "'" +
+            ", motor='" + motor + "'" +
+            "}";
     }
+
 }

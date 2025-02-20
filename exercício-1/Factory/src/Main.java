@@ -1,28 +1,43 @@
-import Fabrica.FabricaEletricos;
 import Fabrica.FabricaVeiculo;
-
-import java.util.Scanner;
+import Fabrica.FabricaEletricos;
+import Fabrica.FabricaCombustao;
+import Models.Veiculo;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        FabricaVeiculo fabrica = new FabricaEletricos();
+        String tipoFabrica = "Combustao";
         String tipoVeiculo = "Carro";
-        String marca  = "BMW";
+        String marca = "BMW";
 
-        if (tipoVeiculo.equals("Carro")) {
-            fabrica.criarCarro(marca);
+        FabricaVeiculo fabricaVeiculos = null;
+
+        if ("Eletricos".equalsIgnoreCase(tipoFabrica)) {
+            fabricaVeiculos = new FabricaEletricos();
+        } else if ("Combustao".equalsIgnoreCase(tipoFabrica)) {
+            fabricaVeiculos = new FabricaCombustao();
+        } else {
+            System.out.println("Tipo de fábrica não suportada: " + tipoFabrica);
+            return;
         }
 
-        if (tipoVeiculo.equals("Moto")) {
-            fabrica.criarMoto(marca);
+        Veiculo veiculo = null;
+
+        switch (tipoVeiculo) {
+            case "Carro":
+                veiculo = fabricaVeiculos.criarCarro(marca);
+                break;
+            case "Moto":
+                veiculo = fabricaVeiculos.criarMoto(marca);
+                break;
+            case "Navio":
+                veiculo = fabricaVeiculos.criarNavio(marca);
+                break;
+            default:
+                System.out.println("Tipo de veículo não suportado: " + tipoVeiculo);
         }
 
-        if (tipoVeiculo.equals("Navio")) {
-            fabrica.criarNavio(marca);
+        if (veiculo != null) {
+            System.out.println("Veículo criado: " + veiculo);
         }
-
-        System.out.println(fabrica);
     }
 }
