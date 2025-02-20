@@ -1,28 +1,26 @@
 import Fabrica.FabricaEletricos;
 import Fabrica.FabricaVeiculo;
-
-import java.util.Scanner;
+import Models.Veiculo;
 
 public class Main {
     public static void main(String[] args) {
-        Scanner sc = new Scanner(System.in);
-
-        FabricaVeiculo fabrica = new FabricaEletricos();
+        FabricaVeiculo fabricaEletricos = new FabricaEletricos();
+        Veiculo veiculo = null;
         String tipoVeiculo = "Carro";
         String marca  = "BMW";
 
         if (tipoVeiculo.equals("Carro")) {
-            fabrica.criarCarro(marca);
+            veiculo = fabricaEletricos.criarCarro(marca);
         }
 
         if (tipoVeiculo.equals("Moto")) {
-            fabrica.criarMoto(marca);
+            veiculo = fabricaEletricos.criarMoto(marca);
         }
 
         if (tipoVeiculo.equals("Navio")) {
-            fabrica.criarNavio(marca);
+            veiculo = fabricaEletricos.criarNavio(marca);
         }
-
-        System.out.println(fabrica);
+        
+        System.out.println(veiculo);
     }
 }

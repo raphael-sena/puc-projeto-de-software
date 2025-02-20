@@ -13,4 +13,15 @@ public abstract class Veiculo {
         this.ano = ano;
         this.motor = motor;
     }
+
+    @Override
+    public String toString() {
+        return "{" +
+            " tipo='" + tipo + "'" +
+            ", marca='" + marca + "'" +
+            ", ano='" + ano + "'" +
+            ", motor='" + motor + "'" +
+            "}";
+    }
+
 }
